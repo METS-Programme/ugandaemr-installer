@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aidsSchema xmlns:xsi="http://www.w3.org/2001/xmlschema-instance" xmlns="http://www.unaids.org/ns/indicators" xmlns:cris="http://www.unaids.org/ns/cris-ext" xmlns:aida="http://www.idmlinitiative.org/resources/dtds/AIDA22.xsd" schemaVersion="2.0">
+<fileMetadata><timestamp>2008-06-30T10:54:00.000</timestamp><source-key>F133B29C-D19D-4919-B2C0-17F08C4684DF</source-key><cris:dataType>Indicators</cris:dataType></fileMetadata>
+<timePeriods>
+<timePeriod key="20070801" periodicity="Month">2007-08-01</timePeriod>
+<timePeriod key="20070901" periodicity="Month">2007-09-01</timePeriod>
+<timePeriod key="20071001" periodicity="Month">2007-10-01</timePeriod>
+<timePeriod key="20071101" periodicity="Month">2007-11-01</timePeriod>
+<timePeriod key="20071201" periodicity="Month">2007-12-01</timePeriod>
+<timePeriod key="20080101" periodicity="Month">2008-01-01</timePeriod>
+<timePeriod key="20080201" periodicity="Month">2008-02-01</timePeriod>
+<timePeriod key="20080301" periodicity="Month">2008-03-01</timePeriod>
+<timePeriod key="20080401" periodicity="Month">2008-04-01</timePeriod>
+<timePeriod key="20080501" periodicity="Month">2008-05-01</timePeriod>
+<timePeriod key="20080601" periodicity="Month">2008-06-01</timePeriod>
+<timePeriod key="20080701" periodicity="Month">2008-07-01</timePeriod>
+</timePeriods>
+<sources>
+<source key="F133B29C-D19D-4919-B2C0-17F08C4684DF">
+<org lang="en">WHO (World Health Organization)</org>
+ <org lang="fr">OMS</org>
+<simpleDim name="OrganisationCategory" item-key="5C749262-3AF0-4903-8109-833418EAAF32" />
+<aida:acronym>WHOR</aida:acronym>
+<cris:item-ext orderBy="2" visible="true" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+<cris:source-ext funding="true" implementing="false" reportReceiving="true" locationGeoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" />
+</source>
+<source key="00000000-0000-0000-0000-000000000000">
+<org lang="en">Unknown</org>
+<org lang="fr">Inconnu</org>
+<simpleDim name="OrganisationCategory" item-key="00000000-0000-0000-0000-000000000000" />
+<cris:item-ext orderBy="32767" visible="false" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+<cris:source-ext reportReceiving="true" locationGeoCode-key="00000000-0000-0000-0000-000000000000" />
+</source>
+<source key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF">
+<org lang="en">My Facility</org>
+<org lang="fr">My Facility</org>
+<simpleDim name="OrganisationCategory" item-key="44CC3C41-67F5-48B8-98F1-E3C5C012D07C" />
+<cris:item-ext orderBy="0" visible="true" source-key="2A78E7BF-70B1-4C9D-9511-B4AB3968A9EB" geoCode-key="8710EAAC-0402-4DB3-8951-FF6F2C5F55DF" timestampCreated="2008-03-11T11:15:00.000" timestampModified="2008-03-11T11:16:00.000" />
+<cris:source-ext  funding="true" implementing="true" reportReceiving="true" locationGeoCode-key="8710EAAC-0402-4DB3-8951-FF6F2C5F55DF" />
+</source></sources>
+<languages>
+<language key="en">
+<name lang="en">English</name>
+<name lang="fr">Anglais</name>
+</language>
+</languages>
+<geoLevels></geoLevels>
+<geoTypes><geoType key="1"><name lang="en">Administrative Unit</name><name lang="fr">Unite administrative</name></geoType></geoTypes>
+<countries>
+<country key="00">
+<name lang="en">Unknown</name>
+<cris:country-ext key="0" nameIso="Unknown" name="Unknown" number="0" levelNumber="1"/>
+</country></countries>
+<geoCodes>
+<geoCode key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" keyNameSpace="http://www.unaids.org/ns/cris-ext" keyType="polygon" geoLevel-key="-1">
+<name lang="en">International</name>
+<timeRange/>
+<cris:geoCode-ext country-key="00" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000"/></geoCode>
+<geoCode key="00000000-0000-0000-0000-000000000000" keyNameSpace="http://www.unaids.org/ns/cris-ext" keyType="polygon" geoLevel-key="-1">
+<name lang="en">Unknown</name>
+<timeRange/>
+<cris:geoCode-ext country-key="00" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000"/></geoCode>
+</geoCodes>
+<dimensions>
+<simpleDim name="IndicatorSet"><name lang="en">Indicator Set</name>
+<item key="076B3B75-3358-4AE7-819B-28FA12FED632">
+<value lang="en">HIV</value>
+<cris:item-ext fixedSet="false" dataReadOnly="false" dataViewReportOnly="false" orderBy="0" visible="true" source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2007-10-31T14:33:00.000" timestampModified="2007-10-31T14:33:00.000" />
+</item>
+<item key="57F621C8-D6A6-4648-BB2A-588DFB836668">
+<value lang="en">Cohort Analysis</value>
+<cris:item-ext fixedSet="false" dataReadOnly="false" dataViewReportOnly="false" orderBy="0" visible="true" source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-18T17:53:00.000" timestampModified="2008-02-18T17:53:00.000" />
+</item>
+</simpleDim>
+<simpleDim name="TargetPopulation"><name lang="en">Target Population</name>
+<item key="E50545E4-E235-4113-8F13-5CF8893A6666">
+<value lang="en">All</value>
+<value lang="fr">Tous</value>
+<cris:item-ext orderBy="0" visible="true" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+</item>
+</simpleDim>
+<simpleDim name="AgeGroup"><name lang="en">Age Group</name>
+<item key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF">
+<value lang="en">NA</value>
+<value lang="fr">SO</value>
+<cris:item-ext group="true" orderBy="32766" visible="true" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+</item>
+</simpleDim>
+<simpleDim name="DataSourceType"><name lang="en">Data Source Type</name>
+<item key="B70E1875-A59B-4412-A533-DD907C8C24BC">
+<value lang="en">Programme monitoring</value>
+ <value lang="fr">Suivi du programme</value>
+<cris:item-ext orderBy="0" visible="true" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+</item>
+</simpleDim>
+<simpleDim name="Gender"><name lang="en">Gender</name>
+<item key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF">
+<value lang="en">NA</value>
+<value lang="fr">SO</value>
+<cris:item-ext orderBy="32766" visible="true" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+</item>
+</simpleDim>
+<simpleDim name="UrbanRural"><name lang="en">Urban / Rural population</name>
+<item key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF">
+<value lang="en">NA</value>
+<value lang="fr">SO</value>
+<cris:item-ext orderBy="32766" visible="true" source-key="409DD962-9E9D-4D8F-9D6B-32AB14BF0DB8" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+</item>
+</simpleDim>
+<simpleDim name="Status"><name lang="en">Status</name>
+<item key="CF58CB3A-87DD-45E2-BDAF-4B40E69DC012">
+<value lang="en">Approved</value>
+<value lang="fr">Approuve</value>
+<cris:item-ext orderBy="0" visible="true" timestampCreated="2004-06-01T00:00:00.000" timestampModified="2004-06-01T00:00:00.000" />
+</item>
+</simpleDim>
+<indicators>
+<indicator><definition key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" keyNameSpace="http://www.unaids.org/ns/cris-ext">
+<name lang="en">Core Indicator 7</name>
+<description lang="en">Core Indicator 7</description>
+<definitionDate>2008-02-19</definitionDate>
+<source-key>F133B29C-D19D-4919-B2C0-17F08C4684DF</source-key>
+<type>percent</type>
+<simpleDim name="Status" item-key="CF58CB3A-87DD-45E2-BDAF-4B40E69DC012"/>
+<manyDim name="IndicatorSet"><item item-key="076B3B75-3358-4AE7-819B-28FA12FED632"><cris:item-ext source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-19T10:27:00.000" timestampModified="2008-02-19T10:27:00.000"/></item>
+<item item-key="57F621C8-D6A6-4648-BB2A-588DFB836668"><cris:item-ext source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-19T10:09:00.000" timestampModified="2008-02-19T10:09:00.000"/></item>
+</manyDim>
+<manyDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666">
+</manyDim>
+<cris:indicator-definition-ext/>
+<cris:item-ext timestampCreated="2008-02-19T10:09:00.000" timestampModified="2008-02-19T10:46:00.000" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+</definition>
+<data><value>90.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+</indicator>
+<indicator><definition key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" keyNameSpace="http://www.unaids.org/ns/cris-ext">
+<name lang="en">Core Indicator 8</name>
+<description lang="en">Core Indicator 8</description>
+<definitionDate>2008-02-19</definitionDate>
+<source-key>F133B29C-D19D-4919-B2C0-17F08C4684DF</source-key>
+<type>percent</type>
+<simpleDim name="Status" item-key="CF58CB3A-87DD-45E2-BDAF-4B40E69DC012"/>
+<manyDim name="IndicatorSet"><item item-key="076B3B75-3358-4AE7-819B-28FA12FED632"><cris:item-ext source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-19T10:27:00.000" timestampModified="2008-02-19T10:27:00.000"/></item>
+<item item-key="57F621C8-D6A6-4648-BB2A-588DFB836668"><cris:item-ext source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-19T10:09:00.000" timestampModified="2008-02-19T10:09:00.000"/></item>
+</manyDim>
+<manyDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666">
+</manyDim>
+<cris:indicator-definition-ext/>
+<cris:item-ext timestampCreated="2008-02-19T10:09:00.000" timestampModified="2008-02-19T10:46:00.000" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+</definition>
+<data><value>90.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+</indicator>
+<indicator><definition key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" keyNameSpace="http://www.unaids.org/ns/cris-ext">
+<name lang="en">Core Indicator 9</name>
+<description lang="en">Core Indicator 9</description>
+<definitionDate>2008-02-19</definitionDate>
+<source-key>F133B29C-D19D-4919-B2C0-17F08C4684DF</source-key>
+<type>percent</type>
+<simpleDim name="Status" item-key="CF58CB3A-87DD-45E2-BDAF-4B40E69DC012"/>
+<manyDim name="IndicatorSet"><item item-key="076B3B75-3358-4AE7-819B-28FA12FED632"><cris:item-ext source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-19T10:27:00.000" timestampModified="2008-02-19T10:27:00.000"/></item>
+<item item-key="57F621C8-D6A6-4648-BB2A-588DFB836668"><cris:item-ext source-key="F133B29C-D19D-4919-B2C0-17F08C4684DF" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF" timestampCreated="2008-02-19T10:09:00.000" timestampModified="2008-02-19T10:09:00.000"/></item>
+</manyDim>
+<manyDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666">
+</manyDim>
+<cris:indicator-definition-ext/>
+<cris:item-ext timestampCreated="2008-02-19T10:09:00.000" timestampModified="2008-02-19T10:46:00.000" geoCode-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+</definition>
+<data><value>90.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>100.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+<data><value>2.0</value>
+<timePeriod-key>9999-99-99</timePeriod-key>
+<source-key>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</source-key><geoCode-key keyNameSpace="http://www.unaids.org/ns/cris-ext">FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</geoCode-key>
+<comment></comment>
+<simpleDim name="AgeGroup" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="DataSourceType" item-key="B70E1875-A59B-4412-A533-DD907C8C24BC"/>
+<simpleDim name="DataSource" item-key="00-key-00"/>
+<simpleDim name="Gender" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="UrbanRural" item-key="FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"/>
+<simpleDim name="TargetPopulation" item-key="E50545E4-E235-4113-8F13-5CF8893A6666"/>
+<simpleDim name="ReportedTo" item-key="00000000-0000-0000-0000-000000000000"/>
+<cris:indicator-data-ext startDate="9999-99-99" endDate="9999-99-99" country-key="00" geoLevel-key="-1" timestampCreated="2008-06-30T10:54:00.000" timestampModified="2008-06-30T10:54:00.000"/>
+</data>
+</indicator>
+</indicators>
+</aidsSchema>

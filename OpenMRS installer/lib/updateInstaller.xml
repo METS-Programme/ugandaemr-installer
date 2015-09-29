@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!-- 
+	Script used to update installer.jar wit the new license file 
+	${basedir} should be OpenMRS_install_bi\Installer\OpenMRS installer
+-->
+<project name="Installation" default="update" basedir="${basedir}">
+
+	<!-- Access env variable -->
+	<property environment="env" />
+
+	<target name="update">
+		
+		<copy file="../license.txt" overwrite="true" todir="resources" />
+		
+		<jar destfile="lib/installer.jar" update="true">
+			<fileset dir="${basedir}">
+				<include name="resources/license.txt" />
+			</fileset>
+		</jar>
+	</target>
+
+</project>

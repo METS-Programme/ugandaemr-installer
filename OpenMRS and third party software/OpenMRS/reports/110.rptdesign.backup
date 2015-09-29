@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.1.1.v20060922-1058 Build &lt;20060926-0959></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2006 &lt;&lt;Your Company Name here>></property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.connectivity.oda.flatfile" name="Pre-ART_register" id="4">
+            <property name="HOME">c:\Documents and Settings\tomcat\Application Data\OpenMRS\reports\datasets</property>
+            <property name="CHARSET">windows-1251</property>
+            <property name="INCLTYPELINE">NO</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Data Set" id="5">
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Age</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Sex</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Address</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Entry Point</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Confirmed HIV+ date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">INH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">CTX</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">TB Rx</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Pregnancy due date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">LTF/TO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Stage 1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Stage 2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Stage 3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Stage 4</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Date medically eligible for ART</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Reason medically eligible for ART</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Date eligible and ready for ART</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">Date eligible ready and selected for ART</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">Date ART started</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Pre-ART_register</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Name</property>
+                    <property name="nativeName">Name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Age</property>
+                    <property name="nativeName">Age</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Sex</property>
+                    <property name="nativeName">Sex</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Address</property>
+                    <property name="nativeName">Address</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Entry Point</property>
+                    <property name="nativeName">Entry Point</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Confirmed HIV+ date</property>
+                    <property name="nativeName">Confirmed HIV+ date</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">INH</property>
+                    <property name="nativeName">INH</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">CTX</property>
+                    <property name="nativeName">CTX</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">TB Rx</property>
+                    <property name="nativeName">TB Rx</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">Pregnancy due date</property>
+                    <property name="nativeName">Pregnancy due date</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">LTF/TO</property>
+                    <property name="nativeName">LTF/TO</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Stage 1</property>
+                    <property name="nativeName">Stage 1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">Stage 2</property>
+                    <property name="nativeName">Stage 2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">Stage 3</property>
+                    <property name="nativeName">Stage 3</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">Stage 4</property>
+                    <property name="nativeName">Stage 4</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">Date medically eligible for ART</property>
+                    <property name="nativeName">Date medically eligible for ART</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">Reason medically eligible for ART</property>
+                    <property name="nativeName">Reason medically eligible for ART</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">Date eligible and ready for ART</property>
+                    <property name="nativeName">Date eligible and ready for ART</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">Date eligible ready and selected for ART</property>
+                    <property name="nativeName">Date eligible ready and selected for ART</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">Date ART started</property>
+                    <property name="nativeName">Date ART started</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select * from Pre-ART_register_(Display)_en_us.csv</property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Name</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Name</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Age</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Age</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Sex</design:name>
+            <design:position>3</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Sex</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Address</design:name>
+            <design:position>4</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Address</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Entry Point</design:name>
+            <design:position>5</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Entry Point</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Confirmed HIV+ date</design:name>
+            <design:position>6</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Confirmed HIV+ date</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>INH</design:name>
+            <design:position>7</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INH</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>CTX</design:name>
+            <design:position>8</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CTX</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>TB Rx</design:name>
+            <design:position>9</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TB Rx</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Pregnancy due date</design:name>
+            <design:position>10</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Pregnancy due date</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>LTF/TO</design:name>
+            <design:position>11</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>LTF/TO</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Stage 1</design:name>
+            <design:position>12</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Stage 1</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Stage 2</design:name>
+            <design:position>13</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Stage 2</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Stage 3</design:name>
+            <design:position>14</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Stage 3</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Stage 4</design:name>
+            <design:position>15</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Stage 4</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Date medically eligible for ART</design:name>
+            <design:position>16</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Date medically eligible for ART</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Reason medically eligible for ART</design:name>
+            <design:position>17</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Reason medically eligible for ART</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Date eligible and ready for ART</design:name>
+            <design:position>18</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Date eligible and ready for ART</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Date eligible ready and selected for ART</design:name>
+            <design:position>19</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Date eligible ready and selected for ART</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>Date ART started</design:name>
+            <design:position>20</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Date ART started</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="IMAI" id="537">
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">9pt</property>
+            <property name="textUnderline">none</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">210mm</property>
+            <property name="width">594mm</property>
+            <property name="style">IMAI</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="820">
+            <text-property name="text">Sample report</text-property>
+        </label>
+        <table id="694">
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">9pt</property>
+            <property name="width">100%</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Name</property>
+                    <expression name="expression">dataSetRow["Name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Age</property>
+                    <expression name="expression">dataSetRow["Age"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Sex</property>
+                    <expression name="expression">dataSetRow["Sex"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Address</property>
+                    <expression name="expression">dataSetRow["Address"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Entry Point</property>
+                    <expression name="expression">dataSetRow["Entry Point"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Confirmed HIV+ date</property>
+                    <expression name="expression">dataSetRow["Confirmed HIV+ date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">INH</property>
+                    <expression name="expression">dataSetRow["INH"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CTX</property>
+                    <expression name="expression">dataSetRow["CTX"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TB Rx</property>
+                    <expression name="expression">dataSetRow["TB Rx"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Pregnancy due date</property>
+                    <expression name="expression">dataSetRow["Pregnancy due date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">LTF/TO</property>
+                    <expression name="expression">dataSetRow["LTF/TO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Stage 1</property>
+                    <expression name="expression">dataSetRow["Stage 1"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Stage 2</property>
+                    <expression name="expression">dataSetRow["Stage 2"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Stage 3</property>
+                    <expression name="expression">dataSetRow["Stage 3"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Stage 4</property>
+                    <expression name="expression">dataSetRow["Stage 4"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date medically eligible for ART</property>
+                    <expression name="expression">dataSetRow["Date medically eligible for ART"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Reason medically eligible for ART</property>
+                    <expression name="expression">dataSetRow["Reason medically eligible for ART"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date eligible and ready for ART</property>
+                    <expression name="expression">dataSetRow["Date eligible and ready for ART"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date eligible ready and selected for ART</property>
+                    <expression name="expression">dataSetRow["Date eligible ready and selected for ART"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date ART started</property>
+                    <expression name="expression">dataSetRow["Date ART started"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="798"/>
+            <column id="799"/>
+            <column id="800"/>
+            <column id="801"/>
+            <column id="802"/>
+            <column id="803"/>
+            <column id="804"/>
+            <column id="805"/>
+            <column id="806"/>
+            <column id="807"/>
+            <column id="808"/>
+            <column id="809"/>
+            <column id="810"/>
+            <column id="811"/>
+            <column id="812"/>
+            <column id="813"/>
+            <column id="814"/>
+            <column id="815"/>
+            <column id="816"/>
+            <column id="817"/>
+            <header>
+                <row id="695">
+                    <property name="fontWeight">bold</property>
+                    <cell id="696">
+                        <label id="697">
+                            <text-property name="text">Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="698">
+                        <label id="699">
+                            <text-property name="text">Age</text-property>
+                        </label>
+                    </cell>
+                    <cell id="700">
+                        <label id="701">
+                            <text-property name="text">Sex</text-property>
+                        </label>
+                    </cell>
+                    <cell id="702">
+                        <label id="703">
+                            <text-property name="text">Address</text-property>
+                        </label>
+                    </cell>
+                    <cell id="704">
+                        <label id="705">
+                            <text-property name="text">Entry Point</text-property>
+                        </label>
+                    </cell>
+                    <cell id="706">
+                        <label id="707">
+                            <text-property name="text">Confirmed HIV+ date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="708">
+                        <label id="709">
+                            <text-property name="text">INH</text-property>
+                        </label>
+                    </cell>
+                    <cell id="710">
+                        <label id="711">
+                            <text-property name="text">CTX</text-property>
+                        </label>
+                    </cell>
+                    <cell id="712">
+                        <label id="713">
+                            <text-property name="text">TB Rx</text-property>
+                        </label>
+                    </cell>
+                    <cell id="714">
+                        <label id="715">
+                            <text-property name="text">Pregnancy due date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="716">
+                        <label id="717">
+                            <text-property name="text">LTF/TO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="718">
+                        <label id="719">
+                            <text-property name="text">Stage 1</text-property>
+                        </label>
+                    </cell>
+                    <cell id="720">
+                        <label id="721">
+                            <text-property name="text">Stage 2</text-property>
+                        </label>
+                    </cell>
+                    <cell id="722">
+                        <label id="723">
+                            <text-property name="text">Stage 3</text-property>
+                        </label>
+                    </cell>
+                    <cell id="724">
+                        <label id="725">
+                            <text-property name="text">Stage 4</text-property>
+                        </label>
+                    </cell>
+                    <cell id="726">
+                        <label id="727">
+                            <text-property name="text">Date medically eligible for ART</text-property>
+                        </label>
+                    </cell>
+                    <cell id="728">
+                        <label id="729">
+                            <text-property name="text">Reason medically eligible for ART</text-property>
+                        </label>
+                    </cell>
+                    <cell id="730">
+                        <label id="731">
+                            <text-property name="text">Date eligible and ready for ART</text-property>
+                        </label>
+                    </cell>
+                    <cell id="732">
+                        <label id="733">
+                            <text-property name="text">Date eligible ready and selected for ART</text-property>
+                        </label>
+                    </cell>
+                    <cell id="734">
+                        <label id="735">
+                            <text-property name="text">Date ART started</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="736">
+                    <cell id="737">
+                        <data id="738">
+                            <property name="resultSetColumn">Name</property>
+                        </data>
+                    </cell>
+                    <cell id="739">
+                        <data id="740">
+                            <property name="resultSetColumn">Age</property>
+                        </data>
+                    </cell>
+                    <cell id="741">
+                        <data id="742">
+                            <property name="resultSetColumn">Sex</property>
+                        </data>
+                    </cell>
+                    <cell id="743">
+                        <data id="744">
+                            <property name="resultSetColumn">Address</property>
+                        </data>
+                    </cell>
+                    <cell id="745">
+                        <data id="746">
+                            <property name="resultSetColumn">Entry Point</property>
+                        </data>
+                    </cell>
+                    <cell id="747">
+                        <data id="748">
+                            <property name="resultSetColumn">Confirmed HIV+ date</property>
+                        </data>
+                    </cell>
+                    <cell id="749">
+                        <data id="750">
+                            <property name="resultSetColumn">INH</property>
+                        </data>
+                    </cell>
+                    <cell id="751">
+                        <data id="752">
+                            <property name="resultSetColumn">CTX</property>
+                        </data>
+                    </cell>
+                    <cell id="753">
+                        <data id="754">
+                            <property name="resultSetColumn">TB Rx</property>
+                        </data>
+                    </cell>
+                    <cell id="755">
+                        <data id="756">
+                            <property name="resultSetColumn">Pregnancy due date</property>
+                        </data>
+                    </cell>
+                    <cell id="757">
+                        <data id="758">
+                            <property name="resultSetColumn">LTF/TO</property>
+                        </data>
+                    </cell>
+                    <cell id="759">
+                        <data id="760">
+                            <property name="resultSetColumn">Stage 1</property>
+                        </data>
+                    </cell>
+                    <cell id="761">
+                        <data id="762">
+                            <property name="resultSetColumn">Stage 2</property>
+                        </data>
+                    </cell>
+                    <cell id="763">
+                        <data id="764">
+                            <property name="resultSetColumn">Stage 3</property>
+                        </data>
+                    </cell>
+                    <cell id="765">
+                        <data id="766">
+                            <property name="resultSetColumn">Stage 4</property>
+                        </data>
+                    </cell>
+                    <cell id="767">
+                        <data id="768">
+                            <property name="resultSetColumn">Date medically eligible for ART</property>
+                        </data>
+                    </cell>
+                    <cell id="769">
+                        <data id="770">
+                            <property name="resultSetColumn">Reason medically eligible for ART</property>
+                        </data>
+                    </cell>
+                    <cell id="771">
+                        <data id="772">
+                            <property name="resultSetColumn">Date eligible and ready for ART</property>
+                        </data>
+                    </cell>
+                    <cell id="773">
+                        <data id="774">
+                            <property name="resultSetColumn">Date eligible ready and selected for ART</property>
+                        </data>
+                    </cell>
+                    <cell id="775">
+                        <data id="776">
+                            <property name="resultSetColumn">Date ART started</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="777">
+                    <cell id="778"/>
+                    <cell id="779"/>
+                    <cell id="780"/>
+                    <cell id="781"/>
+                    <cell id="782"/>
+                    <cell id="783"/>
+                    <cell id="784"/>
+                    <cell id="785"/>
+                    <cell id="786"/>
+                    <cell id="787"/>
+                    <cell id="788"/>
+                    <cell id="789"/>
+                    <cell id="790"/>
+                    <cell id="791"/>
+                    <cell id="792"/>
+                    <cell id="793"/>
+                    <cell id="794"/>
+                    <cell id="795"/>
+                    <cell id="796"/>
+                    <cell id="797"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

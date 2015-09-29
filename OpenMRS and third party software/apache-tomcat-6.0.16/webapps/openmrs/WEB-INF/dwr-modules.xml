@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr
+  PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://directwebremoting.org/schema/dwr20.dtd">
+<dwr>
+   <allow moduleId="htmlformentry">
+			   <create creator="new" javascript="DWRHtmlFormEntryService">
+				     <param name="class"
+                value="org.openmrs.module.htmlformentry.web.DWRHtmlFormEntryService"/>
+				     <include method="checkIfLoggedIn"/>
+				     <include method="authenticate"/>
+			   </create>
+		</allow>
+   <signatures moduleId="htmlformentry">
+			
+				import org.openmrs.module.htmlformentry.web.DWRHtmlFormEntryService;
+				DWRHtmlFormEntryService.checkIfLoggedIn();
+				DWRHtmlFormEntryService.authenticate(String user, String pass);
+			
+		</signatures>
+   <allow moduleId="birt">
+			   <create creator="new" javascript="DwrBirtReportService">
+				     <param name="class" value="org.openmrs.module.birt.web.dwr.DwrBirtReportService"/>
+				     <include method="getReports"/>
+			   </create>
+		</allow>
+   <signatures moduleId="birt">
+			
+				import org.openmrs.module.birt.web.dwr.DwrBirtReportService;
+				DwrBirtReportService.getReports();
+			
+		</signatures>
+   <allow moduleId="reportingcompatibility">
+			   <convert converter="bean" match="org.openmrs.report.Parameter"/>
+			   <convert converter="bean" match="org.openmrs.cohort.CohortSearchHistory"/>
+			
+			   <create creator="new" javascript="DWRCohortBuilderService">
+				     <param name="class" value="org.openmrs.web.dwr.DWRCohortBuilderService"/>
+				     <include method="getMissingParameters"/>
+				     <include method="evaluateCohortDefinition"/>
+				     <include method="getResultCountForFilterId"/>
+				     <include method="getResultCountForSearch"/>
+				     <include method="getResultForSearch"/>
+				     <include method="getResultCombineWithAnd"/>
+				     <include method="getResultCombineWithOr"/>
+				     <include method="getLastResult"/>
+				     <include method="getSavedFilters"/>
+				     <include method="getSavedSearches"/>
+				     <include method="getSavedCohorts"/>
+				     <include method="getFilterResultAsCommaSeparatedIds"/>
+				     <include method="getCohortAsCommaSeparatedIds"/>
+				     <include method="getSearchHistories"/>
+				     <include method="saveSearchHistory"/>
+				     <include method="loadSearchHistory"/>
+				     <include method="getUserSearchHistory"/>
+				     <include method="saveCohort"/>
+				     <include method="saveHistoryElement"/>
+			   </create>
+		</allow>
+</dwr>

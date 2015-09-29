@@ -1,0 +1,148 @@
+<?xml version="1.0"?><?mso-infoPathSolution href="http://hqsuvalhalla.who.int:7070/openmrs/moduleServlet/formentry/forms/8.xsn" solutionVersion="0.1.0.35" PIVersion="1.0.0.0" language="en-gb" productVersion="11.0.8034" ?><?mso-application progid="InfoPath.Document"?><form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xmlns:openmrs="http://hqsuvalhalla.who.int:7070/openmrs/moduleServlet/formentry/forms/schema/8-35" id="8" name="IMAI Encounter" version="0.1">
+  <header>
+    <enterer>1^Super User</enterer>
+    <date_entered>2007-08-31T15:07:10+02:00</date_entered>
+    <session>095F7B5C5C7401AD56D7D3FDCEC62891</session>
+    <uid>UpvVFwVMniymHOF5cmqe</uid>
+  </header>
+  <patient>
+    <patient.patient_id openmrs_attribute="patient_id" openmrs_table="patient">4</patient.patient_id>
+    <who.preart.register.sex openmrs_attribute="gender" openmrs_table="person">M</who.preart.register.sex>
+    <who.preart.register.givenname openmrs_attribute="given_name" openmrs_table="person_name">Han</who.preart.register.givenname>
+    <who.preart.register.familyname openmrs_attribute="family_name" openmrs_table="person_name">Solo</who.preart.register.familyname>
+    <who.preart.register.deathdate openmrs_attribute="death_date" openmrs_table="person"></who.preart.register.deathdate>
+  </patient>
+  <encounter>
+    <encounter.encounter_datetime openmrs_attribute="encounter_datetime" openmrs_table="encounter">2007-08-30</encounter.encounter_datetime>
+    <encounter.location_id openmrs_attribute="location_id" openmrs_table="encounter">1^Unknown</encounter.location_id>
+    <encounter.provider_id openmrs_attribute="provider_id" openmrs_table="encounter">5^Philippe Boucher (2-6)</encounter.provider_id>
+    <visit_type multiple="0" openmrs_concept="90249^VISIT TYPE^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </visit_type>
+    <return_visit_date openmrs_concept="5096^RETURN VISIT DATE^99DCT" openmrs_datatype="DT">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value>2007-10-30</value>
+    </return_visit_date>
+  </encounter>
+  <obs openmrs_concept="1238^MEDICAL RECORD OBSERVATIONS^99DCT" openmrs_datatype="ZZ">
+    <who.register.weight openmrs_concept="90236^BODY WEIGHT^99DCT" openmrs_datatype="NM">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.register.weight>
+    <who.register.height openmrs_concept="90237^BODY HEIGHT^99DCT" openmrs_datatype="NM">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.register.height>
+    <who.preart.register.patienttracking openmrs_concept="90316^PATIENT TRACKING^99DCT" openmrs_datatype="ZZ">
+      <date_lost_to_followup openmrs_concept="90209^DATE LOST TO FOLLOWUP^99DCT" openmrs_datatype="TS">
+            <date xsi:nil="true"/>
+            <time xsi:nil="true"/>
+            <value xsi:nil="true"/>
+      </date_lost_to_followup>
+      <date_transfered_out openmrs_concept="90306^DATE TRANSFERED OUT^99DCT" openmrs_datatype="TS">
+            <date xsi:nil="true"/>
+            <time xsi:nil="true"/>
+            <value xsi:nil="true"/>
+      </date_transfered_out>
+    </who.preart.register.patienttracking>
+    <tuberculosis_status multiple="0" openmrs_concept="90216^TUBERCULOSIS STATUS^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </tuberculosis_status>
+    <tuberculosis_smear_result multiple="0" openmrs_concept="90225^TUBERCULOSIS SMEAR RESULT^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </tuberculosis_smear_result>
+    <tuberculosis_culture_result multiple="0" openmrs_concept="90226^TUBERCULOSIS CULTURE RESULT^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value>90307^POOR SAMPLE^99DCT</value>
+    </tuberculosis_culture_result>
+    <tuberculosis_prophylaxis_started multiple="0" openmrs_concept="1264^TUBERCULOSIS PROPHYLAXIS STARTED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value>656^ISONIAZID^99DCT</value>
+    </tuberculosis_prophylaxis_started>
+    <reason_tuberculosis_prophylaxis_stopped multiple="0" openmrs_concept="1266^REASON TUBERCULOSIS PROPHYLAXIS STOPPED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </reason_tuberculosis_prophylaxis_stopped>
+    <pcp_prophylaxis_started multiple="0" openmrs_concept="1263^PCP PROPHYLAXIS STARTED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </pcp_prophylaxis_started>
+    <reason_pcp_prophylaxis_stopped multiple="0" openmrs_concept="1262^REASON PCP PROPHYLAXIS STOPPED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value>1254^CD4 COUNT GREATER THAN 200^99DCT</value>
+    </reason_pcp_prophylaxis_stopped>
+    <tuberculosis_treatment_started multiple="0" openmrs_concept="1270^TUBERCULOSIS TREATMENT STARTED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </tuberculosis_treatment_started>
+    <reason_tuberculosis_treatment_stopped multiple="0" openmrs_concept="1269^REASON TUBERCULOSIS TREATMENT STOPPED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </reason_tuberculosis_treatment_stopped>
+    <who.preart.register.pregnancyduedate openmrs_concept="90309^PREGNANCY DUE DATE^99DCT" openmrs_datatype="TS">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.preart.register.pregnancyduedate>
+    <who.preart.register.clinicalstage multiple="0" openmrs_concept="90203^WHO HIV CLINICAL STAGE^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.preart.register.clinicalstage>
+    <who.register.functionalstatus multiple="0" openmrs_concept="90235^HISTORY OF FUNCTIONAL STATUS^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.register.functionalstatus>
+    <anti-retroviral_therapy_status multiple="0" openmrs_concept="1358^ANTI-RETROVIRAL THERAPY STATUS^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </anti-retroviral_therapy_status>
+    <method_of_family_planning multiple="0" openmrs_concept="374^METHOD OF FAMILY PLANNING^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </method_of_family_planning>
+    <who.preart.register.reasoneligibleforart multiple="0" openmrs_concept="90202^REASON FOR MEDICAL ELIGIBILITY FOR ANTI-RETROVIRAL THERAPY^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.preart.register.reasoneligibleforart>
+    <symptom_diagnosis_or_opportunistic_infection multiple="0" openmrs_concept="90251^SYMPTOM, DIAGNOSIS, OR OPPORTUNISTIC INFECTION^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </symptom_diagnosis_or_opportunistic_infection>
+  </obs>
+  <problem_list openmrs_concept="1284^PROBLEM LIST^99DCT" openmrs_datatype="ZZ">
+    <imai.medicationsideeffect>
+      <severity_of_side-effect multiple="0" openmrs_concept="90250^SEVERITY OF SIDE-EFFECT^99DCT" openmrs_datatype="CWE">
+            <date xsi:nil="true"/>
+            <time xsi:nil="true"/>
+            <value>90124^MODERATE SEVERITY^99DCT</value>
+      </severity_of_side-effect>
+      <medication_or_other_side_effects multiple="0" openmrs_concept="90227^MEDICATION OR OTHER SIDE EFFECTS^99DCT" openmrs_datatype="CWE">
+            <date xsi:nil="true"/>
+            <time xsi:nil="true"/>
+            <value>90095^BURNING^99DCT</value>
+      </medication_or_other_side_effects>
+    </imai.medicationsideeffect>
+  </problem_list>
+  <other/></form>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?><?mso-infoPathSolution href="http://localhost:8080/openmrs/moduleServlet/formentry/forms/6.xsn" solutionVersion="0.1.0.31" PIVersion="1.0.0.0" language="en-gb" productVersion="11.0.8034" ?><?mso-application progid="InfoPath.Document"?><form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xmlns:openmrs="http://localhost:8080/openmrs/moduleServlet/formentry/forms/schema/6-31" id="6" name="Pre-ART Encounter (Basic)" version="0.1">
+  <header>
+    <enterer>1^Super User</enterer>
+    <date_entered>2007-09-13T11:35:59+02:00</date_entered>
+    <session>68CC62D4DAC8D34BC335BE728F91D580</session>
+    <uid>42A9EWktTTmVfRgmPpLy</uid>
+  </header>
+  <patient>
+    <patient.patient_id openmrs_attribute="patient_id" openmrs_table="patient">6</patient.patient_id>
+    <who.preart.register.sex openmrs_attribute="gender" openmrs_table="person">F</who.preart.register.sex>
+    <who.preart.register.givenname openmrs_attribute="given_name" openmrs_table="person_name">Leia</who.preart.register.givenname>
+    <who.preart.register.familyname openmrs_attribute="family_name" openmrs_table="person_name">Organa</who.preart.register.familyname>
+    <who.preart.register.deathdate openmrs_attribute="death_date" openmrs_table="person"></who.preart.register.deathdate>
+  </patient>
+  <encounter>
+    <encounter.encounter_datetime openmrs_attribute="encounter_datetime" openmrs_table="encounter">2007-02-25</encounter.encounter_datetime>
+    <encounter.location_id openmrs_attribute="location_id" openmrs_table="encounter">1^Unknown</encounter.location_id>
+    <encounter.provider_id openmrs_attribute="provider_id" openmrs_table="encounter">5^Philippe Boucher (2-6)</encounter.provider_id>
+  </encounter>
+  <obs openmrs_concept="1238^MEDICAL RECORD OBSERVATIONS^99DCT" openmrs_datatype="ZZ">
+    <tuberculosis_prophylaxis_started multiple="0" openmrs_concept="1264^TUBERCULOSIS PROPHYLAXIS STARTED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </tuberculosis_prophylaxis_started>
+    <date_lost_to_followup openmrs_concept="90209^DATE LOST TO FOLLOWUP^99DCT" openmrs_datatype="TS">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </date_lost_to_followup>
+    <reason_tuberculosis_prophylaxis_stopped multiple="0" openmrs_concept="1266^REASON TUBERCULOSIS PROPHYLAXIS STOPPED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </reason_tuberculosis_prophylaxis_stopped>
+    <pcp_prophylaxis_started multiple="0" openmrs_concept="1263^PCP PROPHYLAXIS STARTED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </pcp_prophylaxis_started>
+    <reason_pcp_prophylaxis_stopped multiple="0" openmrs_concept="1262^REASON PCP PROPHYLAXIS STOPPED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </reason_pcp_prophylaxis_stopped>
+    <tuberculosis_treatment_started multiple="0" openmrs_concept="1270^TUBERCULOSIS TREATMENT STARTED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </tuberculosis_treatment_started>
+    <reason_tuberculosis_treatment_stopped multiple="0" openmrs_concept="1269^REASON TUBERCULOSIS TREATMENT STOPPED^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </reason_tuberculosis_treatment_stopped>
+    <who.preart.register.pregnancyduedate openmrs_concept="90309^PREGNANCY DUE DATE^99DCT" openmrs_datatype="TS">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.preart.register.pregnancyduedate>
+    <who.preart.register.clinicalstage multiple="0" openmrs_concept="90203^WHO HIV CLINICAL STAGE^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value xsi:nil="true"/>
+    </who.preart.register.clinicalstage>
+    <anti-retroviral_therapy_status multiple="0" openmrs_concept="1358^ANTI-RETROVIRAL THERAPY STATUS^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value>1360^ELIGIBLE AND READY^99DCT</value>
+    </anti-retroviral_therapy_status>
+    <who.preart.register.reasoneligibleforart multiple="0" openmrs_concept="90202^REASON FOR MEDICAL ELIGIBILITY FOR ANTI-RETROVIRAL THERAPY^99DCT" openmrs_datatype="CWE">
+        <date xsi:nil="true"/>
+        <time xsi:nil="true"/>
+        <value>90030^ART ELIGIBILITY BASED ON CLINICAL CRITERIA^99DCT</value>
+    </who.preart.register.reasoneligibleforart>
+  </obs>
+  <other/></form>
