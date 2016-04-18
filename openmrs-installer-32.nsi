@@ -10,16 +10,34 @@ Name "Uganda EMR"
 !define MUI_UNICON "software/favicon.ico"
 
 Var SMDir ;Start menu folder
-!insertmacro MUI_PAGE_COMPONENTS
 ;!define MUI_STARTMENUPAGE_DEFAULTFOLDER "MY Program" ;Default, name is used if not defined
 !insertmacro MUI_PAGE_STARTMENU 0 $SMDir
-!insertmacro MUI_PAGE_INSTFILES
-
 !define MUI_HEADERIMAGE_BITMAP "software\logo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 RequestExecutionLevel admin
 
+;--------------------------------
+;Interface Settings
 
+  !define MUI_ABORTWARNING
+
+;--------------------------------
+;Pages
+  !insertmacro MUI_PAGE_LICENSE "includes\license.txt"
+  !insertmacro MUI_PAGE_COMPONENTS
+  !insertmacro MUI_PAGE_DIRECTORY
+  !insertmacro MUI_PAGE_INSTFILES
+  !insertmacro MUI_UNPAGE_CONFIRM
+  !insertmacro MUI_UNPAGE_INSTFILES
+  
+;--------------------------------
+;Languages
+  !insertmacro MUI_LANGUAGE "English"
+;--------------------------------
+
+InstallDir "$PROGRAMFILES\UgandaEMR"	;This line creates a default location for the installation. Note that $PROGRAMFILES is a constant value provided by NSIS
+DirText "OpenMrs will install in this directory"
+!define instDirectory "$PROGRAMFILES\UgandaEMR"
 
 
 ;-------------------------Splash Screen For installer--------------------------------
@@ -41,34 +59,6 @@ ${EndIf}
 	Pop $0 ; $0 has '1' if the user closed the splash screen early,
 			; '0' if everything closed normally, and '-1' if some error occurred.
 FunctionEnd
-
-
-
-
-;--------------------------------
-;Interface Settings
-
-  !define MUI_ABORTWARNING
-
-;--------------------------------
-;Pages
-
-
-  !insertmacro MUI_PAGE_LICENSE "includes\license.txt"
-  !insertmacro MUI_PAGE_COMPONENTS
-  !insertmacro MUI_PAGE_DIRECTORY
-  !insertmacro MUI_PAGE_INSTFILES
-  !insertmacro MUI_UNPAGE_CONFIRM
-  !insertmacro MUI_UNPAGE_INSTFILES
-  
-;--------------------------------
-;Languages
-  !insertmacro MUI_LANGUAGE "English"
-;--------------------------------
-
-InstallDir "$PROGRAMFILES\UgandaEMR"	;This line creates a default location for the installation. Note that $PROGRAMFILES is a constant value provided by NSIS
-DirText "OpenMrs will install in this directory"
-!define instDirectory "$PROGRAMFILES\UgandaEMR"
 
 ;Installer Sections
 ;Installing Java
@@ -109,51 +99,98 @@ Section 'Mysql 5.5.28' SecMysql
   ExecWait '$PROGRAMFILES\MYSQL\MySQL Server 5.5\bin\mysqlinstanceconfig.exe' $0
 SectionEnd
 
+;Creating openmrs user
+Section 'Create openmrs user' -SecCreateOpenmrsUser
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs_backup"'
+SectionEnd
+
 ;Installing Tomcat
 Section 'Tomcat 7.0.65' SecTomcat
 
-SetOutPath "$PROGRAMFILES\UgandaEMR\"
-File /r "software\apache-tomcat"
+  SetOutPath '$TEMP'
+  SetOverwrite on
+  File 'includes\software\apache-tomcat-7.0.68.exe'
+  ExecWait '$TEMP\apache-tomcat-7.0.68.exe' $0
+  DetailPrint '..Java Runtime Setup exit code = $0'
+  Delete '$TEMP\apache-tomcat-7.0.68.exe'
+
+;SetOutPath "C:\Program Files\UgandaEMR\"
+;File /r "software64\apache-tomcat"
+nsExec::Exec '"C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcat" //US//UgandaEMRTomcat ++JvmOptions="-XX:MaxPermSize=512m" ++JvmOptions="-Xms128m" ++JvmOptions="-Xmx1024m" ++JvmOptions="-Dorg.apache.el.parse.SKIP_IDENTIFIER_CHECK=true"'
 SectionEnd
 
 
 ;Setting up tomcat config
-Section 'Configure Tomcat' -SecTomcatConfig
-SetOutPath "$DESKTOP"
-File  "software\TomcatConfig.cmd"
-SectionEnd
+;Section 'Configure Tomcat' -SecTomcatConfig
+;SetOutPath "$DESKTOP"
+;File  "software64\TomcatConfig.cmd"
+;SectionEnd
 
 
 ;Installing war file
-Section 'OpenMRS 1.9.9' SecOpenMRS
-SetOutPath "$PROGRAMFILES\UgandaEMR\apache-tomcat\webapps"
-File   "software\openmrs.war"
+Section 'OpenMRS 1.11' SecOpenMRS
+SetOutPath "C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps"
+File   "software64\openmrs.war"
 SectionEnd
 
 ;Copying Scripts
 Section 'Scripts' SecScripts
-SetOutPath "$PROGRAMFILES\UgandaEMR"
-File /r "software\scripts"
+SetOutPath "C:\Program Files\UgandaEMR"
+File /r "software64\scripts"
 SectionEnd
 
+;Installing Firefox
+Section 'Firefox' SecBrowser
+
+  SetOutPath '$TEMP'
+  SetOverwrite on
+  File 'software64\firefox.exe'
+  ExecWait '"$TEMP\firefox.exe"' $0
+  DetailPrint '..Fire Fox Setup exit code = $0'
+  Delete '$TEMP\firefox.exe'
+SectionEnd
+
+;Create Desktop icons
+Section "Desktop Shortcut" SecDesktopIcons
+SetOutPath "$DESKTOP\"
+File  "software64\Access OpenMRS.url"
+SectionEnd
 
 ;Setting Start menu
 Section -StartMenu
 !insertmacro MUI_STARTMENU_WRITE_BEGIN 0 ;This macro sets $SMDir and skips to MUI_STARTMENU_WRITE_END if the "Don't create shortcuts" checkbox is checked...
 CreateDirectory "$SMPrograms\$SMDir"
 SetOutPath "$SMPrograms\$SMDir"
-File  "software\Start OpenMRS.lnk"
-File  "software\Stop OpenMRS.lnk"
-File  "software\Backup OpenMRS.lnk"
+File  "software64\Start OpenMRS.lnk"
+File  "software64\Stop OpenMRS.lnk"
+File  "software64\Backup OpenMRS.lnk"
+File  "software64\uninstall.lnk"
 !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
+Section -post
 
-;Create Desktop icons
-Section "Desktop Shortcut" SecDesktopIcons
-SetOutPath "$DESKTOP\"
-File  "software\Start OpenMRS.lnk"
-File  "software\Stop OpenMRS.lnk"
+SetOutPath "C:\Program Files\UgandaEMR"
+
+File  "uninstaller.exe"
+  ; Write the installation path and uninstall keys into the registry
+  WriteRegStr HKLM "Software\UgandaEMR" "C:\Program Files\UgandaEMR" $INSTDIR
+  
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\UgandaEMR" \
+			"DisplayName" "UgandaEMR (remove only)"
+
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\UgandaEMR" \
+			"DisplayIcon" '"C:\Program Files\UgandaEMR\scripts\access.ico"'
+  
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\UgandaEMR" \
+			"UninstallString" '"C:\Program Files\UgandaEMR\uninstaller.exe"'
+
+  WriteUninstaller "C:\Program Files\UgandaEMR\uninstaller.exe"   ; build uninstall program
+  
+  SetOverwrite on
+  File  "uninstaller.exe"
 SectionEnd
-;--------------------------------
 ;--------------------------------

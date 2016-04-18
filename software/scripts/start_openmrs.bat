@@ -1,8 +1,8 @@
 runas /user:Administrator
 @echo off
 
-echo Start Tomcat
-net start OpenmrsTomcat
+echo Start UgandaEMR Tomcat
+net start UgandaEMRTomcat
 
 echo Start MySQL
 net start MySQL
