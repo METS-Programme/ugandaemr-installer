@@ -106,9 +106,19 @@ SectionEnd
 Section 'Create openmrs user' -SecCreateOpenmrsUser
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
-nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
-nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs_backup"'
 SectionEnd
+
+;Generating  openmrs 1.11.6 database
+;Section 'Generate openmrs default Database' -defaultDatabase
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs_backup"'
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "SET PASSWORD FOR $\'root$\'@$\'localhost$\' =$\'openMRS$\'"'
+;nsExec::Exec 'cmd /C c:\mysql\bin\mysql openmrs -uroot  < "includes\databases\default\dbfile.sql.out"'
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
+;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs_backup"'
+;SectionEnd
 
 ;Installing Tomcat
 Section 'Tomcat 7.0.65' SecTomcat
@@ -145,6 +155,12 @@ SetOutPath "C:\Program Files\UgandaEMR"
 File /r "software64\scripts"
 SectionEnd
 
+;Copying Birt
+Section 'Birt' SecBirt
+SetOutPath "C:\Application Data\OpenMRS"
+File /r "includes\Configurations\OpenMRS\birt"
+SectionEnd
+
 ;Installing Firefox
 Section 'Firefox' SecBrowser
 
@@ -154,6 +170,17 @@ Section 'Firefox' SecBrowser
   ExecWait '"$TEMP\firefox.exe"' $0
   DetailPrint '..Fire Fox Setup exit code = $0'
   Delete '$TEMP\firefox.exe'
+SectionEnd
+
+
+;Installing HeidiSQL
+Section 'HeidiSQL' SQLBrowser
+  SetOutPath '$TEMP'
+  SetOverwrite on
+  File 'includes\software\HeidiSQL9.3.0.exe'
+  ExecWait '"$TEMP\HeidiSQL9.3.0.exe"' $0
+  DetailPrint '..HeidiSQL Setup exit code = $0'
+  Delete '$TEMP\HeidiSQL9.3.0.exe'
 SectionEnd
 
 ;Create Desktop icons

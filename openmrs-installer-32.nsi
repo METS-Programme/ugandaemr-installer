@@ -11,7 +11,6 @@ Name "Uganda EMR"
 
 Var SMDir ;Start menu folder
 ;!define MUI_STARTMENUPAGE_DEFAULTFOLDER "MY Program" ;Default, name is used if not defined
-!insertmacro MUI_PAGE_STARTMENU 0 $SMDir
 !define MUI_HEADERIMAGE_BITMAP "software\logo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 RequestExecutionLevel admin
@@ -26,6 +25,7 @@ RequestExecutionLevel admin
   !insertmacro MUI_PAGE_LICENSE "includes\license.txt"
   !insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
+  !insertmacro MUI_PAGE_STARTMENU 0 $SMDir
   !insertmacro MUI_PAGE_INSTFILES
   !insertmacro MUI_UNPAGE_CONFIRM
   !insertmacro MUI_UNPAGE_INSTFILES
