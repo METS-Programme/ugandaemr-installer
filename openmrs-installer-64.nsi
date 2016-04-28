@@ -10,6 +10,7 @@ Name "Uganda EMR"
 !define MUI_UNICON "software/favicon.ico"
 
 Var SMDir ;Start menu folder
+Var errorsrc
 ;!define MUI_STARTMENUPAGE_DEFAULTFOLDER "MY Program" ;Default, name is used if not defined
 
 
@@ -63,10 +64,10 @@ ${EndIf}
 			; '0' if everything closed normally, and '-1' if some error occurred.
 FunctionEnd
 
-;Installer Sections
+;===========================================Installer Sections============================================
 ;Installing Java
 Section 'Java Runtime' SecJava
-
+  SectionIn RO
   SetOutPath '$TEMP'
   SetOverwrite on
   File 'software64\jdk-7u79.exe'
@@ -89,9 +90,9 @@ Section 'Java Runtime' SecJava
   SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment" /TIMEOUT=5000
 SectionEnd
 
-
 ;Installing Mysql
 Section 'Mysql 5.5.28' SecMysql
+  SectionIn RO
   SetOutPath '$TEMP'
   SetOverwrite on
   ;MySQL Server 5.5
@@ -103,62 +104,75 @@ Section 'Mysql 5.5.28' SecMysql
 SectionEnd
 
 ;Creating openmrs user
-Section 'Create openmrs user' -SecCreateOpenmrsUser
+Section -createOpenmrsUser
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
 SectionEnd
 
 ;Generating  openmrs 1.11.6 database
-;Section 'Generate openmrs default Database' -defaultDatabase
+Section -defaultDatabase
+    DetailPrint "Running import"
+
+StrCmp $createdb 1 importdbs
 ;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
-;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs_backup"'
+
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -popenmrs -e "CREATE database openmrs"'
 ;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "SET PASSWORD FOR $\'root$\'@$\'localhost$\' =$\'openMRS$\'"'
-;nsExec::Exec 'cmd /C c:\mysql\bin\mysql openmrs -uroot  < "includes\databases\default\dbfile.sql.out"'
-;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
-;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
-;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
-;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs_backup"'
-;SectionEnd
+ SetOutPath "$DESKTOP\"
+ File 'includes\databases\default\empty_openmrs_dump_1.11.6.sql'
+  DetailPrint '..Add default database exit code = $0'
+;nsExec::Exec 'cmd /C C:\Program Files\MySQL\MySQL Server 5.5\bin openmrs_backup1 -uopenmrs -popenmrs  -e "source $TEMP\empty_openmrs_dump_1.11.6.sql"'
+ ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="SHOW DATABASES;"' $0
+   importdbs:
+      DetailPrint "SQL file import"
+      ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\empty_openmrs_dump_1.11.6.sql" openmrs' $2
+      StrCmp $2 1 0 endinst
+      StrCpy $errorsrc "File import error"
+      Goto abortinst
+
+      abortinst:
+          DetailPrint "                         "
+          DetailPrint "$\n An error occured ! $\n"
+          DetailPrint "  $errorsrc              "
+          DetailPrint "                         "
+
+   endinst:
+   Delete '$DESKTOP\empty_openmrs_dump_1.11.6.sql'
+   SetOverwrite on
+   SetOutPath "C:\Application Data\"
+   File /r "includes\Configurations\OpenMRS"
+SectionEnd
 
 ;Installing Tomcat
 Section 'Tomcat 7.0.65' SecTomcat
-
+  SectionIn RO
   SetOutPath '$TEMP'
   SetOverwrite on
   File 'includes\software\apache-tomcat-7.0.68.exe'
   ExecWait '$TEMP\apache-tomcat-7.0.68.exe' $0
   DetailPrint '..Java Runtime Setup exit code = $0'
   Delete '$TEMP\apache-tomcat-7.0.68.exe'
-
-;SetOutPath "C:\Program Files\UgandaEMR\"
-;File /r "software64\apache-tomcat"
 nsExec::Exec '"C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcat" //US//UgandaEMRTomcat ++JvmOptions="-XX:MaxPermSize=512m" ++JvmOptions="-Xms128m" ++JvmOptions="-Xmx1024m" ++JvmOptions="-Dorg.apache.el.parse.SKIP_IDENTIFIER_CHECK=true"'
 SectionEnd
 
 
-;Setting up tomcat config
-;Section 'Configure Tomcat' -SecTomcatConfig
-;SetOutPath "$DESKTOP"
-;File  "software64\TomcatConfig.cmd"
-;SectionEnd
-
-
 ;Installing war file
-Section 'OpenMRS 1.11' SecOpenMRS
+Section "UgandaEMR" SecUgandaEMR
+SectionIn RO
 SetOutPath "C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps"
 File   "software64\openmrs.war"
 SectionEnd
 
 ;Copying Scripts
-Section 'Scripts' SecScripts
+Section -scripts
 SetOutPath "C:\Program Files\UgandaEMR"
 File /r "software64\scripts"
 SectionEnd
 
 ;Copying Birt
-Section 'Birt' SecBirt
+Section -birt
 SetOutPath "C:\Application Data\OpenMRS"
-File /r "includes\Configurations\OpenMRS\birt"
+File /r "includes\Configurations\birt"
 SectionEnd
 
 ;Installing Firefox
