@@ -179,7 +179,7 @@ SectionEnd
 
 ;Installing Firefox
 Section 'Firefox' SecBrowser
-
+  SectionIn RO
   SetOutPath '$TEMP'
   SetOverwrite on
   File 'software64\firefox.exe'
@@ -191,6 +191,7 @@ SectionEnd
 
 ;Installing HeidiSQL
 Section 'HeidiSQL' SQLBrowser
+   SectionIn RO
   SetOutPath '$TEMP'
   SetOverwrite on
   File 'includes\software\HeidiSQL9.3.0.exe'
@@ -203,7 +204,7 @@ SectionEnd
 Section "Desktop Shortcut" SecDesktopIcons
 SetOutPath "$DESKTOP\"
 File  "software64\Access OpenMRS.url"
-SectionEnd
+
 
 ;Setting Start menu
 Section -StartMenu
