@@ -30,7 +30,7 @@ RequestExecutionLevel admin
   !insertmacro MUI_PAGE_INSTFILES
   !insertmacro MUI_UNPAGE_CONFIRM
   !insertmacro MUI_UNPAGE_INSTFILES
-  
+
 ;--------------------------------
 ;Languages
   !insertmacro MUI_LANGUAGE "English"
@@ -120,12 +120,14 @@ nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -pope
 ;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "SET PASSWORD FOR $\'root$\'@$\'localhost$\' =$\'openMRS$\'"'
  SetOutPath "$DESKTOP\"
  File 'includes\databases\default\empty_openmrs_dump_1.11.6.sql'
+ SetOutPath "$DESKTOP\"
+ File 'includes\databases\default\concept_dictonary_ref.sql'
   DetailPrint '..Add default database exit code = $0'
 ;nsExec::Exec 'cmd /C C:\Program Files\MySQL\MySQL Server 5.5\bin openmrs_backup1 -uopenmrs -popenmrs  -e "source $TEMP\empty_openmrs_dump_1.11.6.sql"'
- ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="SHOW DATABASES;"' $0
    importdbs:
       DetailPrint "SQL file import"
       ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\empty_openmrs_dump_1.11.6.sql" openmrs' $2
+      ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\concept_dictonary_ref.sql" openmrs' $2
       StrCmp $2 1 0 endinst
       StrCpy $errorsrc "File import error"
       Goto abortinst
@@ -138,6 +140,7 @@ nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -pope
 
    endinst:
    Delete '$DESKTOP\empty_openmrs_dump_1.11.6.sql'
+   Delete '$DESKTOP\concept_dictonary_ref.sql'
    SetOverwrite on
    SetOutPath "C:\Application Data\"
    File /r "includes\Configurations\OpenMRS"
@@ -202,9 +205,10 @@ SectionEnd
 
 ;Create Desktop icons
 Section "Desktop Shortcut" SecDesktopIcons
+SectionIn RO
 SetOutPath "$DESKTOP\"
 File  "software64\Access OpenMRS.url"
-
+SectionEnd
 
 ;Setting Start menu
 Section -StartMenu
@@ -215,6 +219,7 @@ File  "software64\Start OpenMRS.lnk"
 File  "software64\Stop OpenMRS.lnk"
 File  "software64\Backup OpenMRS.lnk"
 File  "software64\uninstall.lnk"
+File  "software64\Access OpenMRS.url"
 !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
