@@ -104,7 +104,6 @@ SectionEnd
 Section  -createOpenmrsUser
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
-nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
 SectionEnd
 
 
@@ -114,16 +113,14 @@ Section -defaultDatabase
     DetailPrint "Running import"
 
 StrCmp $createdb 1 importdbs
-;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE database openmrs"'
-
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -popenmrs -e "CREATE database openmrs"'
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -popenmrs -e "CREATE database openmrs_backup"'
 ;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "SET PASSWORD FOR $\'root$\'@$\'localhost$\' =$\'openMRS$\'"'
  SetOutPath "$DESKTOP\"
  File 'includes\databases\default\empty_openmrs_dump_1.11.6.sql'
  SetOutPath "$DESKTOP\"
  File 'includes\databases\default\concept_dictonary_ref.sql'
   DetailPrint '..Add default database exit code = $0'
-;nsExec::Exec 'cmd /C C:\Program Files\MySQL\MySQL Server 5.5\bin openmrs_backup1 -uopenmrs -popenmrs  -e "source $TEMP\empty_openmrs_dump_1.11.6.sql"'
    importdbs:
       DetailPrint "SQL file import"
       ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\empty_openmrs_dump_1.11.6.sql" openmrs' $2
