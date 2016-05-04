@@ -9,6 +9,39 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Transform the encounters
+
+-- Delete forms causing conflict
+TRUNCATE openmrs_backup.form_field;
+TRUNCATE openmrs_backup.htmlformentry_html_form;
+
+delete from openmrs_backup.form where form_id not in (select distinct form_id from openmrs_backup.encounter);
+delete from openmrs_backup.encounter_type where encounter_type_id not in (select distinct encounter_type from openmrs_backup.encounter);
+
+-- ART SUMMARY
+update openmrs_backup.encounter set encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('summary',name) > 0),form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('summary',name) > 0) where encounter_type IN (select encounter_type_id from openmrs_backup.encounter_type where locate('summary',name) > 0 and locate('page',name) > 0);
+update openmrs_backup.encounter_type set encounter_type_id = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('summary',name) > 0) where locate('summary',name) > 0 and locate('page',name) > 0;
+update openmrs_backup.form set form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('summary',name) > 0),encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('summary',name) > 0) where locate('art',name) > 0 and locate('card',name) > 0 and locate('summary',name) > 0 and locate('new',name) = 0;
+
+-- ART Encounter Page
+update openmrs_backup.encounter set encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('education',name) = 0),form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0) where encounter_type IN (select encounter_type_id from openmrs_backup.encounter_type where locate('encounter',name) > 0 and locate('page',name) > 0);
+update openmrs_backup.encounter_type set encounter_type_id = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('education',name) = 0) where locate('encounter',name) > 0 and locate('page',name) > 0;
+update openmrs_backup.form set form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0),encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('education',name) = 0) where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('new',form.name) = 0;
+
+-- ART Health Education
+update openmrs_backup.encounter set encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('education',name) > 0),form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('education',name) > 0) where encounter_type IN (select encounter_type_id from openmrs_backup.encounter_type where locate('health',name) > 0 and locate('education',name) > 0);
+update openmrs_backup.encounter_type set encounter_type_id = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('education',name) > 0) where locate('health',name) > 0 and locate('education',name) > 0;
+UPDATE openmrs_backup.form
+SET form_id      = (SELECT form_id
+                    FROM openmrs.form
+                    WHERE locate('art', name) > 0 AND locate('card', name) > 0 AND locate('education', name) > 0),
+  encounter_type = (SELECT encounter_type_id
+                    FROM openmrs.encounter_type
+                    WHERE locate('art', name) > 0 AND locate('card', name) > 0 AND locate('education', name) > 0)
+WHERE locate('art', name) > 0 AND locate('card', name) > 0 AND locate('education', name) > 0 AND locate('new', name) = 0;
+
+
 -- Update the concepts o the latest version
 
 --
@@ -919,34 +952,30 @@ call mergeSummaryPages();
 -- Update the encounter types from 1.6.3
 -- TODO: Update this script for sites using 1.9.x which have maternity
 
--- Delete forms causing conflict
-TRUNCATE openmrs_backup.form_field;
-TRUNCATE openmrs_backup.htmlformentry_html_form;
+/**Script to upgrade patient encounters to display in the reference app - By METS Project - Revised Jan 2016. Used when upgrading from 1.9.1 to 2.0*/
 
-delete from openmrs_backup.form where form_id not in (select distinct form_id from openmrs_backup.encounter);
-delete from openmrs_backup.encounter_type where encounter_type_id not in (select distinct encounter_type from openmrs_backup.encounter);
 
--- ART SUMMARY
-update openmrs_backup.encounter set encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('summary',name) > 0),form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('summary',name) > 0) where encounter_type IN (select encounter_type_id from openmrs_backup.encounter_type where locate('summary',name) > 0 and locate('page',name) > 0);
-update openmrs_backup.encounter_type set encounter_type_id = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('summary',name) > 0) where locate('summary',name) > 0 and locate('page',name) > 0;
-update openmrs_backup.form set form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('summary',name) > 0),encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('summary',name) > 0) where locate('art',name) > 0 and locate('card',name) > 0 and locate('summary',name) > 0 and locate('new',name) = 0;
+/** update the visit table */
+INSERT INTO visit (patient_id, visit_type_id, date_started, date_stopped, location_id, creator, date_created, uuid, changed_by, date_changed)
+  SELECT
+    patient_id,
+    1,
+    encounter_datetime,
+    encounter_datetime,
+    location_id,
+    creator,
+    encounter_datetime,
+    UUID(),
+    creator,
+    encounter_datetime
+  FROM encounter
+  WHERE encounter.visit_id IS NULL;
 
--- ART Encounter Page
-update openmrs_backup.encounter set encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('education',name) = 0),form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0) where encounter_type IN (select encounter_type_id from openmrs_backup.encounter_type where locate('encounter',name) > 0 and locate('page',name) > 0);
-update openmrs_backup.encounter_type set encounter_type_id = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('education',name) = 0) where locate('encounter',name) > 0 and locate('page',name) > 0;
-update openmrs_backup.form set form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0),encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('education',name) = 0) where locate('art',name) > 0 and locate('card',name) > 0 and locate('encounter',name) > 0 and locate('new',form.name) = 0;
-
--- ART Health Education
-update openmrs_backup.encounter set encounter_type = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('education',name) > 0),form_id = (select form_id from openmrs.form where locate('art',name) > 0 and locate('card',name) > 0 and locate('education',name) > 0) where encounter_type IN (select encounter_type_id from openmrs_backup.encounter_type where locate('health',name) > 0 and locate('education',name) > 0);
-update openmrs_backup.encounter_type set encounter_type_id = (select encounter_type_id from openmrs.encounter_type where locate('art',name) > 0 and locate('card',name) > 0 and locate('education',name) > 0) where locate('health',name) > 0 and locate('education',name) > 0;
-UPDATE openmrs_backup.form
-SET form_id      = (SELECT form_id
-                    FROM openmrs.form
-                    WHERE locate('art', name) > 0 AND locate('card', name) > 0 AND locate('education', name) > 0),
-  encounter_type = (SELECT encounter_type_id
-                    FROM openmrs.encounter_type
-                    WHERE locate('art', name) > 0 AND locate('card', name) > 0 AND locate('education', name) > 0)
-WHERE locate('art', name) > 0 AND locate('card', name) > 0 AND locate('education', name) > 0 AND locate('new', name) = 0;
+/** Add the visit created above to the encounter for which it belongs **/
+UPDATE encounter e INNER JOIN visit v ON (
+  e.patient_id = v.patient_id AND e.encounter_datetime = v.date_started AND e.creator = v.creator AND
+  e.location_id = v.location_id AND e.visit_id IS NULL)
+SET e.visit_id = v.visit_id;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
