@@ -3,7 +3,7 @@
 
 @IF EXIST database.sql (
 	
-@mysql --port=3307 -u root openmrs_backup < database.sql
+@mysql --port=3306 -u root openmrs_backup < database.sql
 
 
 
