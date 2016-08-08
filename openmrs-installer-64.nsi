@@ -16,7 +16,7 @@ Var errorsrc
 
 !define MUI_HEADERIMAGE_BITMAP "software64\logo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
-!define TOMCATDIR "C:\Program Files\UgandaEMR\Tomcat7UgandaEMR\"
+!define TOMCATDIR "C:\Program Files\UgandaEMR\UgandaEMRTomcat\"
 RequestExecutionLevel admin
 
 ;--------------------------------
@@ -117,14 +117,11 @@ nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -pope
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -popenmrs -e "CREATE database openmrs_backup"'
 ;nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "SET PASSWORD FOR $\'root$\'@$\'localhost$\' =$\'openMRS$\'"'
  SetOutPath "$DESKTOP\"
- File 'includes\databases\default\empty_openmrs_dump_1.11.6.sql'
- SetOutPath "$DESKTOP\"
- File 'includes\databases\default\concept_dictonary_ref.sql'
+ File 'includes\databases\default\new-install.sql'
   DetailPrint '..Add default database exit code = $0'
    importdbs:
       DetailPrint "SQL file import"
-      ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\empty_openmrs_dump_1.11.6.sql" openmrs' $2
-      ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\concept_dictonary_ref.sql" openmrs' $2
+      ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $DESKTOP\new-install.sql" openmrs' $2
       StrCmp $2 1 0 endinst
       StrCpy $errorsrc "File import error"
       Goto abortinst
@@ -136,8 +133,7 @@ nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -pope
           DetailPrint "                         "
 
    endinst:
-   Delete '$DESKTOP\empty_openmrs_dump_1.11.6.sql'
-   Delete '$DESKTOP\concept_dictonary_ref.sql'
+   Delete '$DESKTOP\new-install.sql'
    SetOverwrite on
    SetOutPath "C:\Application Data\"
    File /r "includes\Configurations\OpenMRS"
@@ -160,7 +156,7 @@ SectionEnd
 Section "UgandaEMR" SecUgandaEMR
 SectionIn RO
 SetOutPath "C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps"
-File   "software64\openmrs.war"
+File   "includes\warfile\openmrs.war"
 SectionEnd
 
 ;Copying Scripts
@@ -202,7 +198,7 @@ SectionEnd
 Section "Desktop Shortcut" SecDesktopIcon
 SectionIn RO
 SetOutPath "$DESKTOP\"
-File  "software64\Access OpenMRS.url"
+File  "includes\shortcuts\Access UgandaEMR.url"
 SectionEnd
 
 ;Setting Start menu
@@ -210,11 +206,11 @@ Section -StartMenu
 !insertmacro MUI_STARTMENU_WRITE_BEGIN 0 ;This macro sets $SMDir and skips to MUI_STARTMENU_WRITE_END if the "Don't create shortcuts" checkbox is checked...
 CreateDirectory "$SMPrograms\$SMDir"
 SetOutPath "$SMPrograms\$SMDir"
-File  "software64\Start OpenMRS.lnk"
-File  "software64\Stop OpenMRS.lnk"
-File  "software64\Backup OpenMRS.lnk"
-File  "software64\uninstall.lnk"
-File  "software64\Access OpenMRS.url"
+File  "includes\shortcuts\Start UgandaEMR.lnk"
+File  "includes\shortcuts\Stop UgandaEMR.lnk"
+File  "includes\shortcuts\Backup UgandaEMR.lnk"
+File  "includes\shortcuts\uninstall.lnk"
+File  "includes\shortcuts\Access UgandaEMR.url"
 !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 

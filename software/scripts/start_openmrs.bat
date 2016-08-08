@@ -1,14 +1,16 @@
 runas /user:Administrator
 @echo off
 
-echo Start UgandaEMR Tomcat
+echo Start UgandaEMR
 net start UgandaEMRTomcat
 
 echo Start MySQL
 net start MySQL
 
-echo OpenMRS is started
+echo UgandaEMR is started
 
 pause
 
 exit
+=======
+echo UgandaEMR is started

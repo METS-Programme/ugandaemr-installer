@@ -1,14 +1,15 @@
 runas /user:Administrator
 @echo off
 
-echo Stop OpenMRS Tomcat
-net stop OpenmrsTomcat
+echo Stop UgandaEMR Tomcat
+net stop UgandaEMRTomcat
 
 echo Stop Mysql
 net stop MySQL
 
-echo OpenMRS is stopped
+echo UgandaEMR is stopped
 
 pause
+=======
 
 exit
