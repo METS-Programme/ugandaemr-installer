@@ -41,6 +41,8 @@ DirText "OpenMrs will install in this directory"
 !define instDirectory "$PROGRAMFILES\UgandaEMR"
 
 
+OutFile "ugandaemr1-0-14-installer-32.exe"
+
 ;-------------------------Splash Screen For installer--------------------------------
   XPStyle on
 Function .onInit
@@ -134,8 +136,12 @@ nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -pope
 
    endinst:
    Delete '$DESKTOP\new-install.sql'
+   
    SetOverwrite on
-   SetOutPath "C:\Application Data\"
+   SetOutPath "C:\Application Data"
+   File /r "includes\Configurations\OpenMRS"
+   
+   SetOverwrite on
    SetOutPath "C:\Windows\System32\config\systemprofile\Application Data"
    File /r "includes\Configurations\OpenMRS"
 SectionEnd
