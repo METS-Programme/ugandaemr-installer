@@ -43,7 +43,7 @@ InstallDir "C:\Program Files\UgandaEMR"	;This line creates a default location fo
 DirText "OpenMrs will install in this directory"
 !define instDirectory "C:\Program Files\UgandaEMR"
 
-OutFile "ugandaemr1-0-14-installer-64.exe"
+OutFile "ugandaemr1-0-16-installer-64.exe"
 
 ;-------------------------Splash Screen For installer--------------------------------
   XPStyle on

@@ -41,7 +41,7 @@ DirText "OpenMrs will install in this directory"
 !define instDirectory "$PROGRAMFILES\UgandaEMR"
 
 
-OutFile "ugandaemr1-0-14-installer-32.exe"
+OutFile "ugandaemr1-0-16-installer-32.exe"
 
 ;-------------------------Splash Screen For installer--------------------------------
   XPStyle on
