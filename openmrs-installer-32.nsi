@@ -41,7 +41,7 @@ DirText "OpenMrs will install in this directory"
 !define instDirectory "$PROGRAMFILES\UgandaEMR"
 
 
-OutFile "ugandaemr1-0-16-installer-32.exe"
+OutFile "ugandaemr2-0-0-beta1-installer-32.exe"
 
 ;-------------------------Splash Screen For installer--------------------------------
   XPStyle on
@@ -68,21 +68,21 @@ Section 'Java Runtime' SecJava
 SectionIn RO
   SetOutPath '$TEMP'
   SetOverwrite on
-  File 'software\jdk-7u79.exe'
-  ExecWait '"$TEMP\jdk-7u79.exe"' $0
+  File 'software\jdk-8u131.exe'
+  ExecWait '"$TEMP\jdk-8u131.exe"' $0
   DetailPrint '..Java Runtime Setup exit code = $0'
-  Delete '$TEMP\jdk-7u79.exe'
+  Delete '$TEMP\jdk-8u131.exe'
   ; include for some of the windows messages defines
   !include "winmessages.nsh"
   ; HKLM (all users) vs HKCU (current user) defines
   !define env_hklm 'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'
   !define env_hkcu 'HKCU "Environment"'
   ; set variable
-  WriteRegStr ${env_hklm} JAVA_HOME "$PROGRAMFILES\Java\jdk1.7.0_79"
-  WriteRegStr ${env_hklm} JRE_HOME "$PROGRAMFILES\Java\jre7"
+  WriteRegStr ${env_hklm} JAVA_HOME "$PROGRAMFILES\Java\jdk1.8.0_131"
+  WriteRegStr ${env_hklm} JRE_HOME "$PROGRAMFILES\Java\jre1.8.0_131"
   ; make sure windows knows about the change
-  WriteRegStr ${env_hkcu} JAVA_HOME "$PROGRAMFILES\Java\jdk1.7.0_79"
-  WriteRegStr ${env_hkcu} JRE_HOME "$PROGRAMFILES\Java\jre7"
+  WriteRegStr ${env_hkcu} JAVA_HOME "$PROGRAMFILES\Java\jdk1.8.0_131"
+  WriteRegStr ${env_hkcu} JRE_HOME "$PROGRAMFILES\Java\jre1.8.0_131"
   WriteRegStr ${env_hkcu} Path "%JAVA_HOME%\bin;"
   WriteRegDWORD  HKCU "SOFTWARE\JavaSoft\Java Update\Policy" 'EnableJavaUpdate' 0
   SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment" /TIMEOUT=5000
@@ -106,6 +106,8 @@ SectionEnd
 Section  -createOpenmrsUser
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "CREATE USER $\'openmrs$\'@$\'localhost$\' IDENTIFIED BY $\'openmrs$\'"'
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "GRANT ALL ON *.* TO $\'openmrs$\'@$\'localhost$\'"'
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "SET PASSWORD FOR  $\'root$\'@$\'localhost$\' = PASSWORD($\'openmrs$\')"'
+nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -e "FLUSH PRIVILEGES"'
 SectionEnd
 
 
@@ -152,7 +154,7 @@ Section 'Tomcat 7.0.65' SecTomcat
   SetOutPath '$TEMP'
   SetOverwrite on
   File 'includes\software\apache-tomcat-7.0.68.exe'
-  ExecWait '$TEMP\apache-tomcat-7.0.68.exe' $0
+  ExecWait '$TEMP\apache-tomcat-7.0.68.exe /D=C:\Program Files\UgandaEMR\UgandaEMRTomcat' $0
   DetailPrint '..Java Runtime Setup exit code = $0'
   Delete '$TEMP\apache-tomcat-7.0.68.exe'
 
