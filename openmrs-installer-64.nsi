@@ -175,13 +175,7 @@ SectionEnd
 ;Copying Scripts
 Section -scripts
 SetOutPath "C:\Program Files\UgandaEMR"
-File /r "software64\scripts"
-SectionEnd
-
-;Copying Birt
-Section -birt
-SetOutPath "C:\Application Data\OpenMRS"
-File /r "includes\Configurations\birt"
+File /r "includes\scripts"
 SectionEnd
 
 ;Installing Firefox
@@ -222,6 +216,8 @@ SetOutPath "$SMPrograms\$SMDir"
 File  "includes\shortcuts\Start UgandaEMR.lnk"
 File  "includes\shortcuts\Stop UgandaEMR.lnk"
 File  "includes\shortcuts\Backup UgandaEMR.lnk"
+File  "includes\shortcuts\Restore UgandaEMR Database.lnk"
+File  "includes\shortcuts\Upgrade UgandaEMR War File.lnk"
 File  "includes\shortcuts\uninstall.lnk"
 File  "includes\shortcuts\Access UgandaEMR.url"
 !insertmacro MUI_STARTMENU_WRITE_END
@@ -248,5 +244,11 @@ File  "uninstaller.exe"
   
   SetOverwrite on
   File  "uninstaller.exe"
+SectionEnd
+
+;Restore UgandaEMR DataBase
+Section 'Restore Existing UgandaEMR Database' RestoreDatabase
+  ExecWait '"C:\Program Files\UgandaEMR\scripts\restore.exe"' $0
+  DetailPrint '..Restored UgandaEMR Database exit code = $0'
 SectionEnd
 ;--------------------------------

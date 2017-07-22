@@ -4,7 +4,7 @@
 !include "Registry.nsh"
 !include "Sections.nsh"
 
-Name "UgandaEMR Restore"
+Name "UgandaEMR Upgrade"
 !define MUI_ICON "software/favicon.ico"
 !define MUI_UNICON "software/favicon.ico"
 
@@ -33,7 +33,7 @@ RequestExecutionLevel admin
   !insertmacro MUI_LANGUAGE "English"
 ;--------------------------------
 
-OutFile "includes\scripts\restore.exe"
+OutFile "includes\scripts\upgrade.exe"
 
 ;-------------------------Splash Screen For installer--------------------------------
 
@@ -51,28 +51,34 @@ ${If} $0 != "admin" ;Require admin rights on NT4+
 ${EndIf}
 FunctionEnd
 ;===========================================Installer Sections============================================
+Section -defaultProperties
+nsExec::Exec 'net stop UgandaEMRTomcat'
+   RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps\openmrs'
+   RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\temp'
+   CreateDirectory 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\temp'
+   RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\work\Catalina\localhost'
+   RMDir /r 'C:\Application Data\OpenMRS\.openmrs-lib-cache'
+   RMDir /r 'C:\Application Data\OpenMRS\activemq-data'
+   RMDir /r 'C:\Application Data\OpenMRS\chartsearch'
+   RMDir /r 'C:\Application Data\OpenMRS\lucene'
+   Delete 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps\openmrs.war'
+SectionEnd
+
+Section -defaultProperties32
+   RMDir /r 'C:\Windows\System32\config\systemprofile\Application Data\OpenMRS\.openmrs-lib-cache'
+   RMDir /r 'C:\Windows\System32\config\systemprofile\Application Data\OpenMRS\activemq-data'
+   RMDir /r 'C:\Windows\System32\config\systemprofile\Application Data\OpenMRS\chartsearch'
+   RMDir /r 'C:\Windows\System32\config\systemprofile\Application Data\OpenMRS\lucene'
+   CopyFiles "C:\Application Data\openmrs-runtime.properties" "C:\Windows\System32\config\systemprofile\Application Data\OpenMRS"
+SectionEnd
 
 ;Restore database in UgandaEMR
-Section 'Restore Database' -SecRestoreDB
+Section 'Upgrade War File' SecUpgradeWarFile
 SectionIn RO
 nsDialogs::SelectFileDialog mode initial_selection open
 Pop $0
 StrCpy $RestoreFilePath $0
-MessageBox MB_OK "Path to the Database file to be restored [$RestoreFilePath]"
-nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -popenmrs -e "drop database openmrs"'
-nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -popenmrs -e "CREATE database openmrs"'
-
-importdbs:
-      DetailPrint "SQL file import"
-      ExecWait '"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql" --user=openmrs --password=openmrs --execute="source $RestoreFilePath" openmrs' $2
-      StrCmp $2 1 0 endinst
-	  StrCpy $errorsrc "File import error"
-      Goto abortinst
-      abortinst:
-          DetailPrint "                         "
-          DetailPrint "$\n An error occured ! $\n"
-          DetailPrint "  $errorsrc              "
-          DetailPrint "                         "
-   endinst:
+CopyFiles $RestoreFilePath "C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps"
+nsExec::Exec 'net start UgandaEMRTomcat'
 SectionEnd
 ;--------------------------------

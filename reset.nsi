@@ -35,6 +35,7 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES\UgandaEMR"	;This line creates a default location for the installation. Note that $PROGRAMFILES is a constant value provided by NSIS
 DirText "OpenMrs will install in this directory"
 !define instDirectory "$PROGRAMFILES\UgandaEMR"
+OutFile "includes\scripts\reset.exe"
 
 
 ;-------------------------Splash Screen For installer--------------------------------
