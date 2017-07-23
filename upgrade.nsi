@@ -52,7 +52,9 @@ ${EndIf}
 FunctionEnd
 ;===========================================Installer Sections============================================
 Section -defaultProperties
-nsExec::Exec 'net stop UgandaEMRTomcat'
+DetailPrint 'Stopping Tomcat'
+nsExec::Exec 'net stop UgandaEMRTomcat' $0
+DetailPrint 'Tomcat Stopped  $0' 
    RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps\openmrs'
    RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\temp'
    CreateDirectory 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\temp'
@@ -79,6 +81,11 @@ nsDialogs::SelectFileDialog mode initial_selection open
 Pop $0
 StrCpy $RestoreFilePath $0
 CopyFiles $RestoreFilePath "C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps"
+DetailPrint 'Starting Tomcat $0'
 nsExec::Exec 'net start UgandaEMRTomcat'
+DetailPrint 'Tomcat Started $0'
+!define MB_OK 0x00000000
+!define MB_ICONINFORMATION 0x00000040
+System::Call 'USER32::MessageBox(i $hwndparent, t "UgandaEMR war file was upgraded go to browser to proceed ", t "Upgrade Completed", i ${MB_OK}|${MB_ICONINFORMATION})i'
 SectionEnd
 ;--------------------------------
