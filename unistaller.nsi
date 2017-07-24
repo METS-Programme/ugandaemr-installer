@@ -33,7 +33,7 @@ Section "backup openmrs" SecBackupOpenmrs
 DetailPrint 'backingup database files exit code = $0'
 StrCpy $1 '$DESKTOP\UgandaEMR\backups\openmrs_backup.OutFile.${MYTIMESTAMP}.sql'
 ExpandEnvStrings $2 %COMSPEC%
-ExecDos::exec /NOUNLOAD '"$2" /C "C:\Program Files\MySQL\MySQL Server 5.6\bin\mysqldump.exe" --user=openmrs --password=openmrs openmrs > $1' $0
+nsExec::Exec "C:\Program Files\UgandaEMR\scripts\backup.exe" $0
 nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uroot -popenmrs "drop database openmrs"'
 SectionEnd
  
@@ -54,8 +54,14 @@ SectionEnd
 
 Section "Unistall UgandaEMRTomcat" SecUnistallTomcat
 DetailPrint 'Unistalling tomcat exit code = $0'
-nsExec::Exec "C:\Program Files\UgandaEMR\UgandaEMRTomcat\Uninstall.exe"
+nsExec::Exec '"C:\Program Files\UgandaEMR\UgandaEMRTomcat\Uninstall.exe" -ServiceName="UgandaEMRTomcat"'
 DetailPrint 'Done Uninstalling Tomcat'
+SectionEnd
+
+Section "Unistall HeidiSQL" SecUnistallHeidiSQL
+DetailPrint 'HeidiSQL exit code = $0'
+nsExec::Exec "C:\Program Files\HeidiSQL\unins000.exe"
+DetailPrint 'Done Uninstalling HeidiSQL'
 SectionEnd
 
 Section "Uninstall Registers" -SecUnistallReg
