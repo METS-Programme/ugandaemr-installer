@@ -1,0 +1,1 @@
+"C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcatw" //MS//UgandaEMRTomcat

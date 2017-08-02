@@ -231,6 +231,8 @@ File  "includes\shortcuts\Stop UgandaEMR.lnk"
 File  "includes\shortcuts\Backup UgandaEMR Database.lnk"
 File  "includes\shortcuts\Restore UgandaEMR Database.lnk"
 File  "includes\shortcuts\Upgrade UgandaEMR War File.lnk"
+File  "includes\shortcuts\Correct Database Path.lnk"
+File  "includes\shortcuts\Launch Tomcat Manager.lnk"
 File  "includes\shortcuts\uninstall.lnk"
 File  "includes\shortcuts\Access UgandaEMR.url"
 !insertmacro MUI_STARTMENU_WRITE_END

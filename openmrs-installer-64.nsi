@@ -151,7 +151,7 @@ Section -runTimeProperties
 	!define MB_OK 0x00000000
 	!define MB_ICONINFORMATION 0x00000040
 	FileOpen $4 "$DESKTOP\configuemr.bat" w
-	FileWrite $4 'xcopy /s /e /y "C:\Application Data\OpenMRS" "C:\Windows\System32\config\systemprofile\Application Data\OpenMRS"'
+	FileWrite $4 'xcopy /s /e /y "C:\Application Data\OpenMRS\*" "C:\Windows\System32\config\systemprofile\Application Data\OpenMRS"'
 	FileClose $4
 	DetailPrint 'Starting to backup openmrs database'
 	ExpandEnvStrings $0 %COMSPEC%
@@ -234,6 +234,8 @@ File  "includes\shortcuts\Stop UgandaEMR.lnk"
 File  "includes\shortcuts\Backup UgandaEMR Database.lnk"
 File  "includes\shortcuts\Restore UgandaEMR Database.lnk"
 File  "includes\shortcuts\Upgrade UgandaEMR War File.lnk"
+File  "includes\shortcuts\Correct Database Path.lnk"
+File  "includes\shortcuts\Launch Tomcat Manager.lnk"
 File  "includes\shortcuts\uninstall.lnk"
 File  "includes\shortcuts\Access UgandaEMR.url"
 !insertmacro MUI_STARTMENU_WRITE_END
