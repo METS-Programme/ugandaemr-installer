@@ -50,11 +50,14 @@ ${If} $0 != "admin" ;Require admin rights on NT4+
     Quit
 ${EndIf}
 FunctionEnd
+
+!define /date MyTIMESTAMP "%Y-%m-%d-%H%M"
 ;===========================================Installer Sections============================================
 Section -defaultProperties
 DetailPrint 'Stopping Tomcat'
 nsExec::Exec 'net stop UgandaEMRTomcat' $0
-DetailPrint 'Tomcat Stopped  $0' 
+DetailPrint 'Tomcat Stopped  $0'
+   CopyFiles "C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps\openmrs.war" "C:\Application Data\OpenMRS\warfile\${MyTIMESTAMP}\openmrs.war"
    RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\webapps\openmrs'
    RMDir /r 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\temp'
    CreateDirectory 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\temp'
@@ -87,5 +90,6 @@ DetailPrint 'Tomcat Started $0'
 !define MB_OK 0x00000000
 !define MB_ICONINFORMATION 0x00000040
 System::Call 'USER32::MessageBox(i $hwndparent, t "UgandaEMR war file was upgraded go to browser to proceed ", t "Upgrade Completed", i ${MB_OK}|${MB_ICONINFORMATION})i'
+Quit
 SectionEnd
 ;--------------------------------

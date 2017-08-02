@@ -144,10 +144,19 @@ nsExec::Exec 'C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql  -uopenmrs -pope
   SetOverwrite on
    SetOutPath "C:\Application Data"
    File /r "includes\Configurations\OpenMRS"
-   
-   SetOverwrite on
-   SetOutPath "C:\Windows\System32\config\systemprofile\Application Data"
-   File /r "includes\Configurations\OpenMRS"
+SectionEnd
+
+Section -runTimeProperties
+;Copying OpenMRS Application Data directory to system32 directory
+	!define MB_OK 0x00000000
+	!define MB_ICONINFORMATION 0x00000040
+	FileOpen $4 "$DESKTOP\configuemr.bat" w
+	FileWrite $4 'xcopy /s /e /y "C:\Application Data\OpenMRS" "C:\Windows\System32\config\systemprofile\Application Data\OpenMRS"'
+	FileClose $4
+	DetailPrint 'Starting to backup openmrs database'
+	ExpandEnvStrings $0 %COMSPEC%
+	ExecWait '"$0" /C "$DESKTOP\configuemr.bat"'
+	Delete '$DESKTOP\cconfiguemr.bat'
 SectionEnd
 
 ;Installing Tomcat
@@ -254,8 +263,18 @@ File  "uninstaller.exe"
 SectionEnd
 
 ;Restore UgandaEMR DataBase
-Section 'Restore Existing UgandaEMR Database' RestoreDatabase
+Section /o 'Restore Existing UgandaEMR Database' RestoreDatabase
   ExecWait '"C:\Program Files\UgandaEMR\scripts\restore.exe"' $0
   DetailPrint '..Restored UgandaEMR Database exit code = $0'
+SectionEnd
+
+;Start Tomcat and Lauch UgandaEMR in Browser
+Section -launch
+DetailPrint 'Starting Tomcat $0'
+nsExec::Exec 'net start UgandaEMRTomcat'
+DetailPrint 'Tomcat Started $0'
+strcpy $R0 "http://localhost:8081/openmrs"
+Exec '"$PROGRAMFILES\Mozilla Firefox\firefox.exe" "$R0"'
+Quit
 SectionEnd
 ;--------------------------------
