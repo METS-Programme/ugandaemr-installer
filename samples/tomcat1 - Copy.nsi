@@ -17,7 +17,7 @@ Var errorsrc
 !define MUI_HEADERIMAGE_BITMAP "software64\logo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 !define TOMCATDIR "C:\Program Files\UgandaEMR\UgandaEMRTomcat\"
-RequestExecutionLevel admin
+RequestExecutionLevel highest
 
 ;--------------------------------
 ;Interface Settings
@@ -40,7 +40,7 @@ InstallDir "C:\Program Files\UgandaEMR"	;This line creates a default location fo
 DirText "OpenMrs will install in this directory"
 !define instDirectory "C:\Program Files\UgandaEMR"
 
-OutFile "tomcat.exe"
+OutFile "path.exe"
 
 ;-------------------------Splash Screen For installer--------------------------------
   XPStyle on
@@ -62,12 +62,17 @@ Var IPADR
 
  
 ;Installing Tomcat
-Section 'Tomcat 7.0.65' SecTomcat
-ClearErrors
-ReadRegStr $0 HKLM SYSTEM\CurrentControlSet\Services\MYSQL "ImagePath"
-${If} ${Errors}
-  MessageBox MB_OK "Value not found [$0]"
-${Else}  
-	MESSAGEBOX MB_OK "UgandaEMRTomcat is installed at $0 do you want to proceed"
-${EndIf}
+Section -secTomcat
+
+!define MB_OK 0x00000000
+!define MB_ICONINFORMATION 0x00000040
+FileOpen $4 "$DESKTOP\configuemr.bat" w
+FileWrite $4 'mkdir "C:\Windows\System32\config\systemprofile\Application Data\OpenMRS"'
+FileWrite $4 '$\nxcopy /s /e /y "C:\Application Data\OpenMRS" "C:\Windows\System32\config\systemprofile\Application Data\OpenMRS"$\n PAUSE'
+FileClose $4
+DetailPrint 'Starting to backup openmrs database'
+
+ExpandEnvStrings $0 %COMSPEC%
+ExecShell "open" "$DESKTOP\configuemr.bat"
+Delete '$DESKTOP\cconfiguemr.bat'
 SectionEnd

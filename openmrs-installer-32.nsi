@@ -159,23 +159,27 @@ SectionEnd
 
 ;Installing Tomcat
 Section 'Tomcat 7.0.65' SecTomcat
-
+ClearErrors
+ReadRegStr $0 HKLM SYSTEM\CurrentControlSet\Services\UgandaEMRTomcat "ImagePath"
+${If} ${Errors}
   SetOutPath '$TEMP'
   SetOverwrite on
   File 'includes\software\apache-tomcat-7.0.68.exe'
   ExecWait '$TEMP\apache-tomcat-7.0.68.exe /S /D=C:\Program Files\UgandaEMR\UgandaEMRTomcat' $0
   DetailPrint '..Java Runtime Setup exit code = $0'
-  Delete '$TEMP\apache-tomcat-7.0.68.exe'
-
-;SetOutPath "C:\Program Files\UgandaEMR\"
+  ;SetOutPath "C:\Program Files\UgandaEMR\"
 ;File /r "software64\apache-tomcat"
-nsExec::Exec '"C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\Tomcat7" //IS//UgandaEMRTomcat --DisplayName="UgandaEMRTomcat" --Description="This Service starts UgandaEMRTomcat" --Install="C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcat.exe" --Jvm="C:\Program Files\Java\jre1.8.0_131\bin\server\jvm.dll" --StartMode=jvm --StopMode=jvm --StartClass=org.apache.catalina.startup.Bootstrap --StartParams=start --StopClass=org.apache.catalina.startup.Bootstrap --StopParams=stop --Classpath="C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\bootstrap.jar;C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\tomcat-juli.jar" --StdError=auto --StdOutput=auto --LogPrefix=commons-daemon --LogLevel=Info --User=root --Password=openmrs --JvmMs=256 --JvmMx=512 --StartPath="C:\Program Files\UgandaEMR\UgandaEMRTomcat" --StopPath="C:\Program Files\UgandaEMR\UgandaEMRTomcat" --LogPath="C:\Program Files\UgandaEMR\UgandaEMRTomcat\logs" --Startup=auto'
+nsExec::Exec '"C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\Tomcat7" //IS//UgandaEMRTomcat --DisplayName="UgandaEMRTomcat" --Description="This Service starts UgandaEMRTomcat" --Install="C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcat.exe" --Jvm="C:\Program Files\Java\jre1.8.0_131\bin\server\jvm.dll" --StartMode=jvm --StopMode=jvm --StartClass=org.apache.catalina.startup.Bootstrap --StartParams=start --StopClass=org.apache.catalina.startup.Bootstrap --StopParams=stop --Classpath="C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\bootstrap.jar;C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\tomcat-juli.jar" --StdError=auto --StdOutput=auto --LogPrefix=commons-daemon --LogLevel=Info --User=root --Password=openmrs --JvmMs=256 --JvmMx=1024 --StartPath="C:\Program Files\UgandaEMR\UgandaEMRTomcat" --StopPath="C:\Program Files\UgandaEMR\UgandaEMRTomcat" --LogPath="C:\Program Files\UgandaEMR\UgandaEMRTomcat\logs" --Startup=auto'
 nsExec::Exec '"C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcat" //US//UgandaEMRTomcat ++JvmOptions="-XX:MaxPermSize=512m" ++JvmOptions="-Xms128m" ++JvmOptions="-Xmx1024m" ++JvmOptions="-Dorg.apache.el.parse.SKIP_IDENTIFIER_CHECK=true"'
 Rename "C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\Tomcat7.exe" "C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcat.exe"
 Rename "C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\Tomcat7w.exe" "C:\Program Files\UgandaEMR\UgandaEMRTomcat\bin\UgandaEMRTomcatw.exe"
 SetOutPath 'C:\Program Files\UgandaEMR\UgandaEMRTomcat\conf'
 SetOverwrite on
 File 'includes\scripts\server.xml'
+Delete '$TEMP\apache-tomcat-7.0.68.exe'
+${Else}  
+	MESSAGEBOX MB_OK "UgandaEMRTomcat is installed at $0 It will be skipped"
+${EndIf}
 SectionEnd
 
 ;Installing war file
