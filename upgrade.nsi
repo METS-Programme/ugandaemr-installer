@@ -92,4 +92,21 @@ DetailPrint 'Tomcat Started $0'
 System::Call 'USER32::MessageBox(i $hwndparent, t "UgandaEMR war file was upgraded go to browser to proceed ", t "Upgrade Completed", i ${MB_OK}|${MB_ICONINFORMATION})i'
 Quit
 SectionEnd
+
+;Setting Start menu
+Section -StartMenu
+!insertmacro MUI_STARTMENU_WRITE_BEGIN 0 ;This macro sets $SMDir and skips to MUI_STARTMENU_WRITE_END if the "Don't create shortcuts" checkbox is checked...
+CreateDirectory "$SMPrograms\$SMDir"
+SetOutPath "$SMPrograms\$SMDir"
+File  "includes\shortcuts\Start UgandaEMR.lnk"
+File  "includes\shortcuts\Stop UgandaEMR.lnk"
+File  "includes\shortcuts\Backup UgandaEMR Database.lnk"
+File  "includes\shortcuts\Restore UgandaEMR Database.lnk"
+File  "includes\shortcuts\Upgrade UgandaEMR War File.lnk"
+File  "includes\shortcuts\Correct Database Path.lnk"
+File  "includes\shortcuts\Launch Tomcat Manager.lnk"
+File  "includes\shortcuts\uninstall.lnk"
+File  "includes\shortcuts\Access UgandaEMR.url"
+!insertmacro MUI_STARTMENU_WRITE_END
+SectionEnd
 ;--------------------------------

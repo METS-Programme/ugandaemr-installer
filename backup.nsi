@@ -35,8 +35,9 @@ FileWrite $4 "mysqldump openmrs -uopenmrs -popenmrs>$1"
 FileClose $4
 DetailPrint 'Starting to backup openmrs database'
 nsExec::Exec '"$DESKTOP\backup.bat"' $0
-ExecWait '"$0" /C "$DESKTOP\backup.bat"
+ExecWait '"$0" /C "$DESKTOP\backup.bat"'
 Delete '$DESKTOP\backup.bat'
 DetailPrint 'Database Backup Completed Backup file link $1'
 System::Call 'USER32::MessageBox(i $hwndparent, t $1, t "Backup Completed", i ${MB_OK}|${MB_ICONINFORMATION})i'
+Quit
 SectionEnd
