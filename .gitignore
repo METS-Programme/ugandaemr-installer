@@ -1,0 +1,5 @@
+*.exe
+software\*.exe
+software64\*.exe
+includes\warfile/openmrs.war
+includes\software

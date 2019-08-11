@@ -19,7 +19,7 @@ Var SMDir ;Start menu folder
 !define MUI_HEADERIMAGE_BITMAP "software\logo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 RequestExecutionLevel admin
-!define /date MyTIMESTAMP "%Y-%m-%d-%H%M"
+!define /date MyTIMESTAMP "%Y-%m-%d%H%M"
  
 OutFile "includes\scripts\backup.exe"
 CRCCheck on
