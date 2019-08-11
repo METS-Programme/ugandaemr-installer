@@ -300,6 +300,17 @@ Section -scripts
 RMDir /r '$DESKTOP\UgandaEMRUpgrade'
 SectionEnd
 
+;Installing Firefox
+Section 'Firefox' SecBrowser
+  SectionIn RO
+  SetOutPath '$TEMP'
+  SetOverwrite on
+  File 'software\firefox67.exe'
+  ExecWait '"$TEMP\firefox67.exe"' $0
+  DetailPrint '..Fire Fox Setup exit code = $0'
+  Delete '$TEMP\firefox67.exe'
+SectionEnd
+
 ;Restore database in UgandaEMR
 Section 'Upgrade War File to 2.1.0' SecUpgradeWarFile
 SectionIn RO
